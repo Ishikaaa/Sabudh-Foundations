@@ -1,5 +1,5 @@
 """
-Question: Hunt a new Apartment
+Question: Hunt A New Apartment
 
 You're looking to move into a new apartment, and you're given a list of blocks where each block contains an apartment that you could move into. In order to pick your apartment, you want to optimize its location. 
 You also have a list of requirements: a list of buildings that are important to you. For instance, you might value having a school and a gym near your apartment.
