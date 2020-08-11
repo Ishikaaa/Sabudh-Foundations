@@ -33,8 +33,8 @@ def find_target(input_matrix,target):
   b=m*n-1                   # Ending pointer
   while a<=b:
     mid = int((a+b)/2)      
-    row=int(mid/4)
-    column=mid%4
+    row=int(mid/n)
+    column=mid%n
     if input_matrix[row][column]==target:
       return True
     elif input_matrix[row][column]<target:
