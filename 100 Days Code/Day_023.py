@@ -28,6 +28,8 @@ Sample Output 2: False
 # Using Binary Search
 def find_target(input_matrix,target):
   m=len(input_matrix)       # number of rows
+  if m==0:
+    return False
   n=len(input_matrix[0])    # number of columns
   a=0                       # Starting pointer 
   b=m*n-1                   # Ending pointer
