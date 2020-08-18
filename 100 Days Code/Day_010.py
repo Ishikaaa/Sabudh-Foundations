@@ -15,23 +15,23 @@ O(1) & O(n), where n is the length of the input string.
 """
 
 def caesarCipherEncryptor(string, key):    
-  while key>25:
-    key=key-25-1
-  result=''
-  for i in string:
-    ascii_i=ord(i)
-    ascii_i+=key
-    if ascii_i>122:
-      diff=ascii_i-122
-      ascii_i=97+diff-1
-    result=result+chr(ascii_i)  
-  return result
+    while key>25:
+        key=key-25-1
+    result=''
+    for i in string:
+        ascii_i=ord(i)
+        ascii_i+=key
+        if ascii_i>122:
+            diff=ascii_i-122
+            ascii_i=97+diff-1
+        result=result+chr(ascii_i)  
+    return result
  
 if __name__=="__main__":
-  string = "abc"
-  key = 57
-  print(caesarCipherEncryptor(string, key))
+    string = "abc"
+    key = 57
+    print(caesarCipherEncryptor(string, key))
 
-  string = "xyz"
-  key = 2
-  print(caesarCipherEncryptor(string, key))
+    string = "xyz"
+    key = 2
+    print(caesarCipherEncryptor(string, key))
