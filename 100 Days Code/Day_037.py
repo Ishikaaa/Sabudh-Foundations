@@ -36,28 +36,41 @@ Sample Output 1: No
 Explanation 1: 'two' only occurs once in the magazine.
 """
 
-def lexi_order(input_string, len_input_string, index, res, result):
-    if len_input_string<index:
-        return 
-    if len(res)>0:
-        result.add(res)
-    for i in range(index+1, len_input_string):
-        res+=input_string[i]
-        lexi_order(input_string, len_input_string, i, res, result)
-        res = res[:len(res)-1]
-    return result
+import math
+import os
+import random
+import re
+import sys
 
-def power_set(input_string):
-    input_string = ''.join(sorted(input_string)) 
-    result=set([])
-    len_input_string = len(input_string)
-    result = list(lexi_order(input_string, len_input_string, -1, "", result))
-    result.sort()
-    return result
+def convert_into_dict(list_):
+    dict_ = {}
+    for i in list_:
+        if i in dict_.keys():
+            dict_[i]+=1
+        else:
+            dict_[i]=1
+    return dict_
     
-if __name__ == "__main__":
-    input_string = "abc"
-    print(power_set(input_string))
+def checkMagazine(magazine, note):
+    if len(note)>len(magazine):
+          return "No"
+    dict_magazine = convert_into_dict(magazine)
+    for i in note:
+        if i in dict_magazine.keys():
+            if dict_magazine[i]>0:
+                dict_magazine[i]-=1
+                continue
+            else:
+                return "No"
+        else:
+            return "No"
+    return "Yes"
 
-    input_string = "banana"
-    print(power_set(input_string))
+if __name__ == '__main__':
+    mn = input().split()
+    m = int(mn[0])
+    n = int(mn[1])
+    
+    magazine = input().rstrip().split()
+    note = input().rstrip().split()
+    print(checkMagazine(magazine, note))
